@@ -25,8 +25,16 @@ void writeArr()
     Console.WriteLine("Введите массив разделяя каждый элемент пробелом");
     string text;
     text = Console.ReadLine();
-    string[] words = text.Split(' ');
-    returnArr(words, 3);
+    if (text!="")
+    {
+        while (!text.Equals(text.Replace("  "," ")))
+        {
+            text = text.Replace("  "," ");
+        }
+        text = text.Trim();
+        string[] words = text.Split(' ');
+        returnArr(words, 3);
+    }
 }
 void standartArr()
 {
