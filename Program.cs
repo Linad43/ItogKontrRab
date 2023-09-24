@@ -1,12 +1,50 @@
 ﻿
 Console.WriteLine("Итоговая контрольная работа");
 
-string[] begin = {"Hello", "2", "world", ":-)"};
-returnArr(begin, 3);
+start();
+
+void start()
+{
+    Console.WriteLine("Ввод массива");
+    Console.WriteLine("  1. с клавиатуры");
+    Console.WriteLine("  2. стандартный из задания");
+    Console.WriteLine("0. Выход");
+    int choice = Convert.ToInt32(Console.ReadLine());
+    switch (choice)
+    {
+        case 1:
+        writeArr();
+        break;
+        case 2:
+        standartArr();
+        break;
+    }
+}
+void writeArr()
+{
+    Console.WriteLine("Введите массив разделяя каждый элемент пробелом");
+    string text;
+    text = Console.ReadLine();
+    string[] words = text.Split(' ');
+    returnArr(words, 3);
+}
+void standartArr()
+{
+    string[] begin = {"Hello", "2", "world", ":-)"};
+    returnArr(begin, 3);
+    begin = new string[] {"1234", "1567", "-2", "computer", "science"};
+    returnArr(begin, 3);
+    begin = new string[] {"Russia", "Denmark", "Kazan"};
+    returnArr(begin, 3);
+}
+
 
 
 void returnArr(string[] begin, int sizeWord)
 {
+    Console.Write("[");
+    Console.Write(string.Join(", ", begin));
+    Console.Write("] -> ");
     int indexBeginArr = 0;
     int indexEndArr = 0;
     string[] result = new string[indexEndArr];
@@ -26,7 +64,7 @@ void returnArr(string[] begin, int sizeWord)
         }
         indexBeginArr++;
     }
-    for (int i = 0; i < indexEndArr; i++)
+    /*for (int i = 0; i < indexEndArr; i++)
     {
         if (i==indexEndArr-1)
         {
@@ -37,5 +75,8 @@ void returnArr(string[] begin, int sizeWord)
             Console.Write(result[i] + ", ");
         }
         
-    }
+    }*/
+    Console.Write("[");
+    Console.Write(string.Join(", ", result));
+    Console.WriteLine("]");
 }
